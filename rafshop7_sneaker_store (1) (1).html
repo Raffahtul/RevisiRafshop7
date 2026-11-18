@@ -1,0 +1,1089 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>RAFShop7 | Sneaker Store Original &amp; Terpercaya</title>
+<style>
+:root{
+  --bg:#0b0b0d;
+  --panel:#151519;
+  --panel2:#1e1e25;
+  --orange:#ff681f;
+  --orange-hover:#ff7d3d;
+  --white:#f8f8fa;
+  --muted:#b4b4be;
+  --border:#2c2c35;
+  --success:#22c55e;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--white);font-family:'Segoe UI',Arial,sans-serif;line-height:1.55;overflow-x:hidden}
+button,input,textarea,select{font:inherit}
+button{cursor:pointer}
+a{text-decoration:none;color:inherit}
+.container{width:min(1140px,92%);margin:auto}
+
+/* HEADER & NAVIGASI */
+header{height:74px;background:rgba(15,15,19,0.95);backdrop-filter:blur(10px);border-bottom:1px solid var(--border);position:sticky;top:0;z-index:20}
+.header-inner{height:100%;display:flex;align-items:center;justify-content:space-between;gap:12px}
+.logo{font-size:25px;font-weight:900;letter-spacing:0.5px;display:flex;align-items:center;gap:6px;cursor:pointer}
+.logo span{color:var(--orange)}
+.logo-badge{font-size:10px;background:rgba(255,104,31,0.16);color:var(--orange);border:1px solid rgba(255,104,31,0.4);padding:2px 7px;border-radius:99px;font-weight:700;letter-spacing:1px}
+nav{display:flex;gap:20px;align-items:center}
+nav a{font-size:14px;color:#d6d6df;font-weight:600;transition:color 0.2s}
+nav a:hover{color:var(--orange)}
+
+/* HERO SECTION */
+.hero{padding:44px 0 24px}
+.hero-box{
+  padding:46px 6%;
+  border:1px solid #353540;
+  border-radius:20px;
+  background:radial-gradient(circle at top right,rgba(255,104,31,0.18),transparent 55%),linear-gradient(135deg,#22222a 0%,#121216 100%);
+  position:relative;
+  overflow:hidden;
+}
+.eyebrow,.section-heading small{color:var(--orange);font-weight:800;letter-spacing:2px;font-size:12px;display:inline-block;text-transform:uppercase}
+.hero h1{font-size:clamp(34px,5.5vw,60px);line-height:1.1;margin:14px 0;font-weight:900}
+.hero h1 span{color:var(--orange)}
+.hero p{color:var(--muted);max-width:560px;margin-bottom:24px;font-size:15px}
+.hero-actions{display:flex;gap:12px;flex-wrap:wrap;align-items:center}
+.primary-btn,.add-btn,.checkout-btn{background:var(--orange);color:white;border:0;border-radius:10px;padding:13px 20px;font-weight:700;transition:background 0.2s,transform 0.15s}
+.primary-btn:hover,.add-btn:hover,.checkout-btn:hover{background:var(--orange-hover);transform:translateY(-1px)}
+.secondary-btn{background:rgba(255,255,255,0.06);color:var(--white);border:1px solid var(--border);border-radius:10px;padding:12px 18px;font-weight:600;font-size:14px;transition:border-color 0.2s,color 0.2s}
+.secondary-btn:hover{border-color:var(--orange);color:var(--orange)}
+.hero-stats{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;margin-top:30px;padding-top:24px;border-top:1px solid rgba(255,255,255,0.08);max-width:620px}
+.stat-item strong{display:block;font-size:19px;color:var(--white)}
+.stat-item span{font-size:12px;color:var(--muted)}
+
+/* KEUNGGULAN TOKO / INFO SINGKAT */
+.features-strip{padding:10px 0 22px}
+.features-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
+.feature-card{background:var(--panel);border:1px solid var(--border);border-radius:12px;padding:16px;display:flex;gap:12px;align-items:flex-start}
+.feature-icon{width:38px;height:38px;border-radius:9px;background:rgba(255,104,31,0.14);color:var(--orange);display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0}
+.feature-card h3{font-size:14.5px;margin-bottom:3px;color:var(--white)}
+.feature-card p{font-size:12.5px;color:var(--muted);line-height:1.45}
+
+/* SECTION & BRAND FILTER */
+.section{padding:26px 0 46px;scroll-margin-top:84px}
+.section-heading{margin-bottom:18px}
+.section-heading h2{font-size:26px;margin-top:4px;font-weight:800}
+.section-sub{color:var(--muted);font-size:14px;margin-top:4px}
+.brand-list{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.brand-btn{
+  background:var(--panel);
+  border:1.5px solid var(--border);
+  color:white;
+  padding:15px 16px;
+  border-radius:10px;
+  text-align:left;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  font-weight:700;
+  font-size:15px;
+  transition:all 0.2s;
+}
+.brand-btn.active,.brand-btn:hover{background:#2a180d;border-color:var(--orange);transform:translateY(-1px)}
+.brand-btn span:last-child{
+  color:var(--orange);
+  background:rgba(255,104,31,0.14);
+  padding:3px 9px;
+  border-radius:99px;
+  font-size:12px;
+}
+
+/* KATALOG PRODUK */
+.catalog-head{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:20px;gap:12px;flex-wrap:wrap}
+.catalog-meta{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.catalog-badge{background:var(--panel2);border:1px solid var(--border);padding:6px 12px;border-radius:99px;font-size:13px;color:var(--white);font-weight:600}
+.reset-filter-btn{
+  background:rgba(255,104,31,0.15);
+  color:var(--orange);
+  border:1px solid rgba(255,104,31,0.45);
+  padding:6px 12px;
+  border-radius:99px;
+  font-size:12.5px;
+  font-weight:700;
+  display:none;
+  transition:all 0.2s;
+}
+.reset-filter-btn:hover{background:var(--orange);color:#fff}
+.products{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px}
+.product{
+  background:var(--panel);
+  border:1px solid var(--border);
+  border-radius:14px;
+  overflow:hidden;
+  display:flex;
+  flex-direction:column;
+  justify-content:space-between;
+  transition:transform 0.22s,border-color 0.22s,box-shadow 0.22s;
+  animation:fadeIn 0.25s ease;
+}
+.product:hover{transform:translateY(-4px);border-color:rgba(255,104,31,0.65);box-shadow:0 12px 28px rgba(0,0,0,0.45)}
+.product-clickable{cursor:pointer;position:relative}
+.img-wrap{position:relative;background:#f5f5f7;overflow:hidden;border-bottom:1px solid var(--border)}
+.product img{width:100%;height:225px;object-fit:contain;display:block;padding:14px;transition:transform 0.25s ease}
+.product-clickable:hover img{transform:scale(1.05)}
+
+/* NAMA BRAND SANGAT JELAS & MENONJOL */
+.brand-overlay-tag{
+  position:absolute;
+  top:11px;
+  left:11px;
+  background:#111115;
+  color:#ffffff;
+  border:1.5px solid var(--orange);
+  font-size:12px;
+  font-weight:800;
+  letter-spacing:0.8px;
+  padding:4px 10px;
+  border-radius:7px;
+  text-transform:uppercase;
+  box-shadow:0 4px 10px rgba(0,0,0,0.3);
+  z-index:2;
+}
+.zoom-hint{
+  position:absolute;
+  bottom:10px;
+  right:10px;
+  background:rgba(17,17,21,0.85);
+  color:#fff;
+  font-size:11px;
+  padding:4px 8px;
+  border-radius:6px;
+  font-weight:600;
+}
+.product-info{padding:16px 16px 0}
+.product-brand-row{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-bottom:6px}
+.product-brand{
+  display:inline-block;
+  font-size:12.5px;
+  color:#ffffff;
+  background:var(--orange);
+  padding:3px 10px;
+  border-radius:6px;
+  font-weight:800;
+  letter-spacing:0.8px;
+  text-transform:uppercase;
+}
+.product-cat{font-size:11px;color:var(--muted);font-weight:600}
+.product h3{font-size:18px;margin:6px 0;color:var(--white);font-weight:800}
+.description{color:var(--muted);font-size:13px;min-height:42px;line-height:1.5}
+.price-row{display:flex;align-items:center;justify-content:space-between;margin:12px 0}
+.price{font-size:18px;font-weight:900;color:var(--orange)}
+.stock-tag{font-size:11px;color:var(--success);background:rgba(34,197,94,0.12);border:1px solid rgba(34,197,94,0.3);padding:2px 8px;border-radius:99px;font-weight:700}
+.product-actions{padding:0 16px 16px}
+.product select{width:100%;padding:10px 12px;background:var(--panel2);color:white;border:1px solid var(--border);border-radius:8px;margin-bottom:10px;font-size:13px}
+.product select:focus{outline:none;border-color:var(--orange)}
+.add-btn{width:100%;font-size:14px}
+
+/* PANDUAN BELANJA & UKURAN */
+.guide-section{padding:36px 0;border-top:1px solid var(--border);scroll-margin-top:84px}
+.guide-grid{display:grid;grid-template-columns:1.2fr 1fr;gap:20px}
+.guide-card{background:var(--panel);border:1px solid var(--border);border-radius:14px;padding:24px}
+.guide-card h3{font-size:19px;margin-bottom:14px;display:flex;align-items:center;gap:8px}
+.steps-list{display:grid;gap:12px}
+.step-item{display:flex;gap:12px;align-items:flex-start;background:var(--panel2);padding:12px 14px;border-radius:10px;border:1px solid var(--border)}
+.step-num{background:var(--orange);color:#fff;font-weight:800;font-size:12px;width:26px;height:26px;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px}
+.step-item strong{display:block;font-size:14px;margin-bottom:2px}
+.step-item p{font-size:12.5px;color:var(--muted)}
+.size-table{width:100%;border-collapse:collapse;font-size:13px;margin-top:8px}
+.size-table th,.size-table td{padding:9px 10px;text-align:center;border-bottom:1px solid var(--border)}
+.size-table th{background:var(--panel2);color:var(--orange);font-weight:800}
+.size-table tr:last-child td{border-bottom:none}
+
+/* KONTAK & FOOTER */
+.contact{padding:42px 0;border-top:1px solid var(--border);scroll-margin-top:84px}
+.contact-box{padding:28px;background:var(--panel);border:1px solid var(--border);border-radius:14px;display:grid;grid-template-columns:1.3fr 1fr;gap:24px;align-items:center}
+.contact-box p{color:var(--muted);margin-top:8px;font-size:14px}
+.contact-links{display:flex;gap:12px;margin-top:18px;flex-wrap:wrap}
+.contact-links a{border:1px solid var(--border);background:var(--panel2);border-radius:9px;padding:11px 16px;font-size:14px;font-weight:700;transition:all 0.2s}
+.contact-links a:hover{border-color:var(--orange);color:var(--orange)}
+.store-info-box{background:var(--panel2);border:1px solid var(--border);border-radius:12px;padding:18px;font-size:13px}
+.store-info-box p{margin:0 0 8px;color:#ddd}
+.store-info-box p:last-child{margin-bottom:0}
+footer{text-align:center;padding:24px;background:#101013;color:var(--muted);font-size:13px;border-top:1px solid var(--border)}
+
+/* KERANJANG FLOATING & PANEL */
+.cart-float{position:fixed;right:20px;bottom:20px;background:var(--orange);color:white;border:0;border-radius:40px;padding:14px 20px;z-index:25;font-weight:800;box-shadow:0 8px 24px rgba(255,104,31,0.4)}
+.overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.75);z-index:29}
+.cart-panel{display:none;position:fixed;right:0;top:0;width:min(460px,100%);height:100dvh;overflow-y:auto;background:#111115;border-left:1px solid var(--border);padding:22px;z-index:30}
+.cart-header{display:flex;justify-content:space-between;align-items:center;padding-bottom:16px;border-bottom:1px solid var(--border)}
+.close-btn{background:#292930;color:white;border:0;border-radius:7px;padding:8px 12px;font-weight:700}
+.cart-items{padding-top:15px}
+.empty-cart{text-align:center;padding:25px;color:var(--muted)}
+.cart-item{background:var(--panel);padding:14px;border:1px solid var(--border);border-radius:10px;margin-bottom:10px}
+.cart-item p{font-size:13px;color:var(--muted);margin-top:4px}
+.remove-btn{background:#49201b;color:#ffb0a5;border:0;padding:7px 11px;border-radius:6px;margin-top:8px;font-size:12px;font-weight:700}
+.cart-total{display:flex;justify-content:space-between;padding:17px 0;border-top:1px solid var(--border);font-weight:bold;font-size:16px}
+.cart-total strong{color:var(--orange);font-size:18px}
+.form-section{border-top:1px solid var(--border);padding-top:18px;margin-top:8px}
+.form-section h3{margin-bottom:13px;font-size:17px}
+.form-group{margin-bottom:13px}
+.form-group label{display:block;color:#ccc;font-size:13px;margin-bottom:6px}
+.form-group input,.form-group textarea{width:100%;padding:11px;background:var(--panel2);border:1px solid #38383f;border-radius:8px;color:white}
+.form-group textarea{min-height:80px;resize:vertical}
+.payment-list{display:grid;gap:8px}
+.payment-option{display:flex;gap:10px;align-items:center;padding:12px;background:var(--panel2);border:1px solid var(--border);border-radius:8px;font-size:14px;cursor:pointer}
+.payment-option:has(input:checked){border-color:var(--orange);background:#28180f}
+.payment-option input{accent-color:var(--orange)}
+.checkout-btn{width:100%;margin:18px 0 10px;padding:14px}
+.note{text-align:center;font-size:11.5px;color:var(--muted)}
+
+/* MODAL DETAIL PRODUK (GAMBAR + DESKRIPSI + SPESIFIKASI) */
+.image-modal{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.88);z-index:100;justify-content:center;align-items:center;padding:12px}
+.modal-card{
+  background:var(--panel);
+  border:1.5px solid #444452;
+  border-radius:16px;
+  max-width:480px;
+  width:100%;
+  max-height:88dvh;
+  overflow-y:auto;
+  position:relative;
+  animation:fadeIn 0.2s ease;
+  box-shadow:0 20px 50px rgba(0,0,0,0.75);
+}
+.modal-top-bar{
+  position:sticky;
+  top:0;
+  left:0;
+  right:0;
+  z-index:30;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:10px 14px;
+  background:rgba(21,21,25,0.97);
+  backdrop-filter:blur(8px);
+  border-bottom:1px solid var(--border);
+}
+.modal-top-label{font-size:12px;font-weight:800;letter-spacing:1px;color:var(--muted);text-transform:uppercase}
+.modal-img-box{background:#f5f5f7;padding:14px;position:relative;border-bottom:1px solid var(--border)}
+.modal-card img{width:100%;height:210px;object-fit:contain;display:block}
+.modal-body{padding:18px 20px 22px}
+.modal-brand{
+  display:inline-block;
+  font-size:12px;
+  color:#ffffff;
+  background:var(--orange);
+  padding:4px 11px;
+  border-radius:6px;
+  font-weight:800;
+  letter-spacing:0.8px;
+  text-transform:uppercase;
+}
+.modal-title{font-size:21px;margin:9px 0 4px;color:var(--white);font-weight:800}
+.modal-price{font-size:19px;font-weight:900;color:var(--orange);margin-bottom:10px}
+.modal-desc{color:#d2d2dc;font-size:13.5px;line-height:1.58;margin-bottom:13px}
+.modal-specs{background:var(--panel2);border:1px solid var(--border);border-radius:10px;padding:11px 13px;margin-bottom:15px;font-size:12.5px;color:var(--muted)}
+.modal-specs div{margin-bottom:5px}
+.modal-specs div:last-child{margin-bottom:0}
+.modal-specs strong{color:var(--white)}
+.modal-order-row{display:flex;gap:10px}
+.modal-order-row select{flex:1;padding:11px;background:var(--panel2);color:#fff;border:1px solid var(--border);border-radius:8px}
+.modal-order-row button{flex:1.4}
+.modal-bottom-close{
+  width:100%;
+  margin-top:10px;
+  padding:11px;
+  background:#26262f;
+  color:#e4e4ec;
+  border:1px solid #3c3c47;
+  border-radius:8px;
+  font-size:13.5px;
+  font-weight:700;
+  transition:background 0.2s,color 0.2s;
+}
+.modal-bottom-close:hover{background:#343440;color:#fff}
+.image-modal .close-modal{
+  width:40px;
+  height:40px;
+  background:var(--orange);
+  color:#ffffff;
+  border:2px solid #ffffff;
+  border-radius:50%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:19px;
+  font-weight:900;
+  line-height:1;
+  cursor:pointer;
+  flex-shrink:0;
+  box-shadow:0 4px 14px rgba(255,104,31,0.45);
+  transition:background 0.2s,transform 0.15s;
+}
+.image-modal .close-modal:hover{background:#e0530f;transform:scale(1.06)}
+
+/* TOAST NOTIFIKASI */
+.toast{
+  position:fixed;
+  top:88px;
+  left:50%;
+  transform:translateX(-50%) translateY(-16px);
+  background:#1c1c24;
+  color:#fff;
+  border:1.5px solid var(--orange);
+  padding:12px 18px;
+  border-radius:10px;
+  font-size:13.5px;
+  font-weight:700;
+  z-index:110;
+  opacity:0;
+  pointer-events:none;
+  transition:all 0.25s ease;
+  box-shadow:0 10px 26px rgba(0,0,0,0.5);
+  text-align:center;
+  max-width:90%;
+}
+.toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+
+@keyframes fadeIn{
+  from{opacity:0;transform:translateY(8px)}
+  to{opacity:1;transform:translateY(0)}
+}
+
+/* RESPONSIF TABLET & MOBILE */
+@media(max-width:900px){
+  .features-grid{grid-template-columns:1fr}
+  .guide-grid,.contact-box{grid-template-columns:1fr}
+}
+@media(max-width:750px){
+  .products{grid-template-columns:repeat(2,minmax(0,1fr));gap:13px}
+  .product img{height:175px}
+  .brand-list{grid-template-columns:repeat(2,1fr)}
+  nav{gap:12px}
+  nav a{font-size:12.5px}
+  .hero-stats{grid-template-columns:repeat(3,1fr);gap:8px}
+  .stat-item strong{font-size:16px}
+}
+@media(max-width:480px){
+  .logo{font-size:20px}
+  .logo-badge{display:none}
+  nav{gap:9px}
+  nav a{font-size:11.5px}
+  .hero-box{padding:32px 20px}
+  .products{gap:10px}
+  .product img{height:140px;padding:10px}
+  .brand-overlay-tag{font-size:10px;padding:3px 7px;top:8px;left:8px}
+  .zoom-hint{font-size:9.5px;padding:3px 6px}
+  .product-info{padding:11px 11px 0}
+  .product-actions{padding:0 11px 11px}
+  .product-brand{font-size:10.5px;padding:2px 7px}
+  .product-cat{display:none}
+  .product h3{font-size:14.5px}
+  .description{font-size:11.5px;min-height:36px}
+  .price{font-size:14.5px}
+  .stock-tag{display:none}
+  .product select,.add-btn{font-size:12px;padding:9px}
+  .brand-btn{font-size:12.5px;padding:12px 10px}
+  .modal-order-row{flex-direction:column}
+  .modal-card img{height:185px}
+}
+</style>
+</head>
+<body>
+
+<div class="toast" id="toastBox" role="status" aria-live="polite"></div>
+
+<header>
+<div class="container header-inner">
+  <a href="#home" onclick="showProducts('Semua',false)" class="logo">RAF<span>SHOP7</span><span class="logo-badge">SNEAKER STORE</span></a>
+  <nav>
+    <a href="#home">Beranda</a>
+    <a href="#katalog">Katalog</a>
+    <a href="#panduan">Panduan &amp; Ukuran</a>
+    <a href="#kontak">Kontak</a>
+  </nav>
+</div>
+</header>
+
+<main>
+<!-- HERO SECTION -->
+<section class="hero" id="home">
+<div class="container">
+  <div class="hero-box">
+    <div class="eyebrow">WELCOME TO RAFSHOP7 · SNEAKER STORE</div>
+    <h1>STEP UP<br><span>YOUR STYLE.</span></h1>
+    <p>Temukan koleksi sneakers terbaik dari Nike, Adidas, Converse, New Balance, dan Puma. Klik gambar sepatu untuk melihat detail spesifikasi &amp; deskripsi lengkap sebelum memesan.</p>
+    <div class="hero-actions">
+      <a href="#katalog" class="primary-btn">Jelajahi Katalog →</a>
+      <a href="#panduan" class="secondary-btn">Panduan Ukuran &amp; Cara Pesan</a>
+    </div>
+    <div class="hero-stats">
+      <div class="stat-item"><strong>10+ Model</strong><span>Pilihan Sneakers Populer</span></div>
+      <div class="stat-item"><strong>5 Brand</strong><span>Nike, Adidas, NB, Puma, Converse</span></div>
+      <div class="stat-item"><strong>Size 39–44</strong><span>Lengkap &amp; Siap Kirim</span></div>
+    </div>
+  </div>
+</div>
+</section>
+
+<!-- KEUNGGULAN LAYANAN -->
+<section class="features-strip">
+<div class="container">
+  <div class="features-grid">
+    <div class="feature-card">
+      <div class="feature-icon">✓</div>
+      <div>
+        <h3>100% Original &amp; Curated</h3>
+        <p>Setiap sepatu melewati pengecekan kualitas fisik dan kesesuaian model sebelum dikirim.</p>
+      </div>
+    </div>
+    <div class="feature-card">
+      <div class="feature-icon">🚚</div>
+      <div>
+        <h3>Pengiriman Cepat</h3>
+        <p>Pengemasan rapi dengan double-box agar kotak sepatu tetap aman hingga alamat tujuan.</p>
+      </div>
+    </div>
+    <div class="feature-card">
+      <div class="feature-icon">📏</div>
+      <div>
+        <h3>Konsultasi Ukuran</h3>
+        <p>Tersedia panduan ukuran EU ke CM serta konsultasi langsung melalui WhatsApp admin.</p>
+      </div>
+    </div>
+  </div>
+</div>
+</section>
+
+<!-- PILIH BRAND -->
+<section class="section">
+<div class="container">
+  <div class="section-heading">
+    <small>OUR COLLECTION</small>
+    <h2>Jelajahi Berdasarkan Brand</h2>
+    <p class="section-sub">Pilih salah satu brand di bawah ini untuk langsung menampilkan koleksi sepatunya di katalog.</p>
+  </div>
+  <div class="brand-list">
+    <button class="brand-btn active" data-brand="Semua" onclick="showProducts('Semua',true)"><span>Semua Brand</span><span>10 Produk</span></button>
+    <button class="brand-btn" data-brand="Nike" onclick="showProducts('Nike',true)"><span>Nike</span><span>02 Produk</span></button>
+    <button class="brand-btn" data-brand="Adidas" onclick="showProducts('Adidas',true)"><span>Adidas</span><span>02 Produk</span></button>
+    <button class="brand-btn" data-brand="Converse" onclick="showProducts('Converse',true)"><span>Converse</span><span>02 Produk</span></button>
+    <button class="brand-btn" data-brand="New Balance" onclick="showProducts('New Balance',true)"><span>New Balance</span><span>02 Produk</span></button>
+    <button class="brand-btn" data-brand="Puma" onclick="showProducts('Puma',true)"><span>Puma</span><span>02 Produk</span></button>
+  </div>
+</div>
+</section>
+
+<!-- KATALOG PRODUK -->
+<section class="section" id="katalog">
+<div class="container">
+  <div class="catalog-head">
+    <div class="section-heading" style="margin-bottom:0">
+      <small id="catalogEyebrow">FIND YOUR STYLE</small>
+      <h2 id="catalogMainTitle">Koleksi Sneakers RAFShop7</h2>
+      <p class="section-sub">Klik foto atau kartu produk untuk memperbesar gambar dan membaca spesifikasi bahan.</p>
+    </div>
+    <div class="catalog-meta">
+      <button type="button" class="reset-filter-btn" id="resetFilterBtn" onclick="showProducts('Semua',false)">✕ Tampilkan Semua Brand</button>
+      <span class="catalog-badge" id="activeBrandLabel">Brand: Semua</span>
+      <span class="catalog-badge" id="productCount">10 Produk</span>
+    </div>
+  </div>
+  <div class="products" id="productList"></div>
+</div>
+</section>
+
+<!-- PANDUAN PEMESANAN & SIZE CHART -->
+<section class="guide-section" id="panduan">
+<div class="container">
+  <div class="section-heading">
+    <small>SHOPPING GUIDE</small>
+    <h2>Cara Pemesanan &amp; Panduan Ukuran</h2>
+    <p class="section-sub">Informasi lengkap agar Anda mendapatkan ukuran yang pas dan transaksi yang mudah.</p>
+  </div>
+  <div class="guide-grid">
+    <div class="guide-card">
+      <h3>🛒 4 Langkah Mudah Berbelanja</h3>
+      <div class="steps-list">
+        <div class="step-item">
+          <span class="step-num">1</span>
+          <div>
+            <strong>Pilih Brand &amp; Model Sepatu</strong>
+            <p>Filter berdasarkan brand favorit Anda dan klik kartu produk untuk melihat detail gambar serta bahan.</p>
+          </div>
+        </div>
+        <div class="step-item">
+          <span class="step-num">2</span>
+          <div>
+            <strong>Tentukan Ukuran &amp; Masukkan Keranjang</strong>
+            <p>Pilih ukuran EU (39–44) sesuai panjang kaki Anda, lalu tekan tombol <em>+ Tambah Keranjang</em>.</p>
+          </div>
+        </div>
+        <div class="step-item">
+          <span class="step-num">3</span>
+          <div>
+            <strong>Isi Data Pengiriman &amp; Metode Bayar</strong>
+            <p>Buka keranjang di pojok kanan bawah, lengkapi nama, nomor WhatsApp, alamat, dan metode pembayaran.</p>
+          </div>
+        </div>
+        <div class="step-item">
+          <span class="step-num">4</span>
+          <div>
+            <strong>Konfirmasi Pesanan via WhatsApp</strong>
+            <p>Tekan tombol checkout untuk mengirim rincian pesanan otomatis ke admin RAFShop7.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="guide-card">
+      <h3>📏 Tabel Ukuran Sepatu (Size Chart)</h3>
+      <p style="font-size:13px;color:var(--muted);margin-bottom:10px">Ukur panjang telapak kaki dari ujung tumit hingga ujung jari terpanjang (dalam cm):</p>
+      <table class="size-table">
+        <thead>
+          <tr>
+            <th>Ukuran EU</th>
+            <th>Ukuran US</th>
+            <th>Panjang Kaki (CM)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td><strong>39</strong></td><td>6.5</td><td>24.5 cm</td></tr>
+          <tr><td><strong>40</strong></td><td>7</td><td>25.0 cm</td></tr>
+          <tr><td><strong>41</strong></td><td>8</td><td>26.0 cm</td></tr>
+          <tr><td><strong>42</strong></td><td>8.5</td><td>26.5 cm</td></tr>
+          <tr><td><strong>43</strong></td><td>9.5</td><td>27.5 cm</td></tr>
+          <tr><td><strong>44</strong></td><td>10</td><td>28.0 cm</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+</section>
+
+<!-- KONTAK & INFORMASI TOKO -->
+<section class="contact" id="kontak">
+<div class="container">
+  <div class="contact-box">
+    <div>
+      <div class="section-heading" style="margin-bottom:8px">
+        <small>GET IN TOUCH</small>
+        <h2>Hubungi RAFShop7</h2>
+      </div>
+      <p>Butuh bantuan memilih ukuran, menanyakan ketersediaan stok, atau melacak pesanan? Tim kami siap membantu Anda setiap hari.</p>
+      <div class="contact-links">
+        <a href="https://wa.me/6288975157459" target="_blank" rel="noopener">💬 Chat WhatsApp Admin</a>
+        <a href="https://www.instagram.com/r4f409?mdxt=c3czdXd4ZHg2MjRy" target="_blank" rel="noopener">📸 Instagram @r4f409</a>
+      </div>
+    </div>
+    <div class="store-info-box">
+      <p><strong>🕒 Jam Operasional:</strong> Setiap Hari, 09.00 – 21.00 WIB</p>
+      <p><strong>📦 Pengiriman:</strong> JNE, J&amp;T Express, SiCepat &amp; Gosend/GrabExpress</p>
+      <p><strong>💳 Pembayaran:</strong> QRIS, GoPay, DANA, OVO, ShopeePay, Transfer BCA, BRI, BNI, Mandiri</p>
+      <p><strong>🔄 Garansi Tukar Size:</strong> Berlaku maksimal 2x24 jam setelah barang diterima (syarat &amp; ketentuan berlaku)</p>
+    </div>
+  </div>
+</div>
+</section>
+</main>
+
+<footer>© 2026 RAFShop7 · Sneaker Store Original &amp; Terpercaya</footer>
+
+<button class="cart-float" onclick="openCart()">🛒 Keranjang (<span id="cartCount">0</span>)</button>
+<div class="overlay" id="overlay" onclick="closeCart()"></div>
+
+<!-- MODAL POP-UP DETAIL SEPATU -->
+<div class="image-modal" id="imageModal" onclick="if(event.target===this)closeImageModal()">
+<div class="modal-card">
+  <div class="modal-top-bar">
+    <span class="modal-top-label">Detail Produk Sneakers</span>
+    <button type="button" class="close-modal" onclick="closeImageModal()" aria-label="Tutup detail sepatu" title="Tutup">✕</button>
+  </div>
+  <div class="modal-img-box">
+    <img id="modalImage" src="" alt="Preview Sepatu">
+  </div>
+  <div class="modal-body">
+    <div class="modal-brand" id="modalBrand"></div>
+    <h3 class="modal-title" id="modalTitle"></h3>
+    <div class="modal-price" id="modalPrice"></div>
+    <p class="modal-desc" id="modalDesc"></p>
+    <div class="modal-specs" id="modalSpecs"></div>
+    <div class="modal-order-row">
+      <select id="modalSizeSelect">
+        <option value="">Pilih Ukuran (39–44)</option>
+        <option value="39">Ukuran 39 (24.5 cm)</option>
+        <option value="40">Ukuran 40 (25.0 cm)</option>
+        <option value="41">Ukuran 41 (26.0 cm)</option>
+        <option value="42">Ukuran 42 (26.5 cm)</option>
+        <option value="43">Ukuran 43 (27.5 cm)</option>
+        <option value="44">Ukuran 44 (28.0 cm)</option>
+      </select>
+      <button class="add-btn" id="modalAddBtn">+ Tambah ke Keranjang</button>
+    </div>
+    <button type="button" class="modal-bottom-close" onclick="closeImageModal()">✕ Tutup Detail Sepatu</button>
+  </div>
+</div>
+</div>
+
+<!-- PANEL KERANJANG BELANJA -->
+<aside class="cart-panel" id="cartPanel">
+<div class="cart-header">
+  <h2>Keranjang Belanja</h2>
+  <button class="close-btn" onclick="closeCart()">✕ Tutup</button>
+</div>
+<div class="cart-items" id="cartItems"></div>
+<div class="cart-total"><span>Total Pembayaran</span><strong id="cartTotal">Rp0</strong></div>
+
+<div class="form-section">
+  <h3>01. Data Pembeli</h3>
+  <div class="form-group">
+    <label for="buyerName">Nama Lengkap</label>
+    <input id="buyerName" placeholder="Masukkan nama lengkap">
+  </div>
+  <div class="form-group">
+    <label for="buyerPhone">Nomor WhatsApp</label>
+    <input id="buyerPhone" type="tel" placeholder="Contoh: 08123456789">
+  </div>
+  <div class="form-group">
+    <label for="buyerAddress">Alamat Lengkap</label>
+    <textarea id="buyerAddress" placeholder="Jalan, nomor rumah, kelurahan, kecamatan, kota, kode pos"></textarea>
+  </div>
+</div>
+
+<div class="form-section">
+  <h3>02. Metode Pembayaran</h3>
+  <div class="payment-list">
+    <label class="payment-option"><input type="radio" name="payment" value="GoPay"> GoPay</label>
+    <label class="payment-option"><input type="radio" name="payment" value="DANA"> DANA</label>
+    <label class="payment-option"><input type="radio" name="payment" value="QRIS"> QRIS</label>
+    <label class="payment-option"><input type="radio" name="payment" value="OVO"> OVO</label>
+    <label class="payment-option"><input type="radio" name="payment" value="ShopeePay"> ShopeePay</label>
+    <label class="payment-option"><input type="radio" name="payment" value="E-Wallet lainnya"> E-Wallet lainnya</label>
+    <label class="payment-option"><input type="radio" name="payment" value="Transfer Bank BCA"> Transfer Bank BCA</label>
+    <label class="payment-option"><input type="radio" name="payment" value="Transfer Bank BRI"> Transfer Bank BRI</label>
+    <label class="payment-option"><input type="radio" name="payment" value="Transfer Bank BNI"> Transfer Bank BNI</label>
+    <label class="payment-option"><input type="radio" name="payment" value="Transfer Bank Mandiri"> Transfer Bank Mandiri</label>
+  </div>
+</div>
+<button class="checkout-btn" onclick="checkout()">BUAT PESANAN VIA WHATSAPP</button>
+<p class="note">Konfirmasi pesanan dan instruksi pembayaran dilakukan langsung melalui WhatsApp.</p>
+</aside>
+
+<script>
+// Helper pembuat ilustrasi SVG sneaker realistis & unik untuk cadangan jika gambar eksternal gagal dimuat
+function createSneakerIllustration(brand, model, primaryColor, accentColor, soleColor, styleType) {
+  const svg = `
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 420" width="640" height="420">
+    <defs>
+      <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+        <stop offset="0%" stop-color="#f8f9fb"/>
+        <stop offset="100%" stop-color="#e8ebf0"/>
+      </linearGradient>
+      <linearGradient id="shoeBody" x1="0%" y1="0%" x2="100%" y2="80%">
+        <stop offset="0%" stop-color="${primaryColor}"/>
+        <stop offset="100%" stop-color="${accentColor}"/>
+      </linearGradient>
+      <filter id="dropShadow" x="-10%" y="-10%" width="130%" height="130%">
+        <feDropShadow dx="0" dy="14" stdDeviation="10" flood-color="#000000" flood-opacity="0.18"/>
+      </filter>
+    </defs>
+    <rect width="640" height="420" fill="url(#bgGrad)"/>
+    <circle cx="510" cy="100" r="130" fill="${accentColor}" opacity="0.08"/>
+    <circle cx="130" cy="340" r="110" fill="${primaryColor}" opacity="0.07"/>
+    <text x="32" y="48" font-family="Arial, sans-serif" font-size="20" font-weight="900" fill="#18181b" letter-spacing="2">${brand.toUpperCase()}</text>
+    <text x="32" y="72" font-family="Arial, sans-serif" font-size="14" font-weight="700" fill="#52525b">${model}</text>
+
+    <g filter="url(#dropShadow)" transform="translate(55, 55)">
+      ${styleType === 'chunky'
+        ? `<path d="M55,235 Q180,225 320,235 Q430,242 495,222 L505,252 Q420,275 315,265 Q175,255 48,265 Z" fill="${soleColor}" stroke="#27272a" stroke-width="3"/>
+           <path d="M62,258 L82,272 L105,258 L130,272 L155,258 L180,272 L205,258 L230,272 L255,258 L280,272 L305,258 L330,272 L355,258 L380,272 L405,258 L430,272 L455,258 L480,272 L498,252" fill="none" stroke="#18181b" stroke-width="4" stroke-linejoin="round"/>`
+        : `<path d="M52,235 Q265,245 495,224 L500,252 Q265,268 48,255 Z" fill="${soleColor}" stroke="#27272a" stroke-width="3"/>`
+      }
+      ${styleType === 'air'
+        ? `<rect x="115" y="238" width="85" height="14" rx="7" fill="#ff681f" opacity="0.85"/>
+           <rect x="330" y="238" width="95" height="13" rx="6" fill="#ff681f" opacity="0.85"/>`
+        : ''
+      }
+      ${styleType === 'hightop'
+        ? `<path d="M60,235 L78,92 Q125,105 168,90 L225,155 Q310,168 415,175 Q485,182 495,224 Q265,242 60,235 Z" fill="url(#shoeBody)" stroke="#18181b" stroke-width="3"/>
+           <circle cx="132" cy="148" r="22" fill="#ffffff" stroke="#18181b" stroke-width="2.5"/>
+           <polygon points="132,134 136,144 146,144 138,150 141,160 132,154 123,160 126,150 118,144 128,144" fill="#e11d48"/>`
+        : `<path d="M60,235 L85,135 Q135,155 182,125 L245,162 Q330,172 425,180 Q488,186 495,224 Q265,242 60,235 Z" fill="url(#shoeBody)" stroke="#18181b" stroke-width="3"/>`
+      }
+      <path d="M405,179 Q485,185 495,224 L420,229 Q405,202 405,179 Z" fill="#ffffff" opacity="0.9" stroke="#18181b" stroke-width="2.5"/>
+      <path d="M165,195 Q255,212 365,178 Q275,228 158,210 Z" fill="#ffffff" stroke="#18181b" stroke-width="2"/>
+      <line x1="215" y1="145" x2="242" y2="136" stroke="#ffffff" stroke-width="6" stroke-linecap="round"/>
+      <line x1="248" y1="158" x2="275" y2="149" stroke="#ffffff" stroke-width="6" stroke-linecap="round"/>
+      <line x1="282" y1="168" x2="309" y2="159" stroke="#ffffff" stroke-width="6" stroke-linecap="round"/>
+      <line x1="316" y1="175" x2="343" y2="166" stroke="#ffffff" stroke-width="6" stroke-linecap="round"/>
+      <path d="M85,135 Q135,155 182,125" fill="none" stroke="#ff681f" stroke-width="6" stroke-linecap="round"/>
+    </g>
+    <text x="608" y="395" text-anchor="end" font-family="Arial, sans-serif" font-size="12" font-weight="700" fill="#71717a">RAFSHOP7 VERIFIED MODEL</text>
+  </svg>`;
+  return "data:image/svg+xml;charset=UTF-8," + encodeURIComponent(svg);
+}
+
+// Data 10 produk lengkap dengan gambar yang sesuai masing-masing model & deskripsi
+const products = [
+  {
+    id: 1,
+    brand: "Nike",
+    category: "Lifestyle / Air Max",
+    name: "Nike Air Max Plus 7",
+    description: "Nike Air Max Plus 7 memiliki desain sporty dan modern dengan teknologi Tuned Air yang empuk, nyaman digunakan seharian, serta cocok untuk gaya casual maupun streetwear.",
+    material: "Breathable Mesh & Synthetic TPU Cage",
+    sole: "Tuned Air Cushioning + Rubber Outsole",
+    colorway: "Black / Metallic Silver / Sunset Orange",
+    price: 1250000,
+    img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQkuQlvtTEwjZlZlqevNXscE5P8j93Ch73IAV9edOzlFw&s=10",
+    fallbackSvg: createSneakerIllustration("Nike", "Air Max Plus 7", "#1f2937", "#ff681f", "#f4f4f5", "air")
+  },
+  {
+    id: 6,
+    brand: "Nike",
+    category: "Classic Running",
+    name: "Nike Air Max 90",
+    description: "Sneakers ikonik era 90-an dengan desain sporty, panel kulit berlapis, dan unit bantalan Visible Max Air di bagian tumit yang sangat nyaman.",
+    material: "Genuine Leather, Suede & Mesh Upper",
+    sole: "Foam Midsole dengan Visible Max Air",
+    colorway: "White / Infrared / Neutral Grey",
+    price: 1799000,
+    img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSMS2mluvmkacYEyh-dXUimQngvUBEbHJjrp_fMup-tCg&s=10",
+    fallbackSvg: createSneakerIllustration("Nike", "Air Max 90", "#e5e7eb", "#ef4444", "#ffffff", "air")
+  },
+  {
+    id: 2,
+    brand: "Adidas",
+    category: "Performance Running",
+    name: "Adidas Ultraboost Light",
+    description: "Sepatu running ringan generasi terbaru dengan teknologi bantalan Light Boost yang memberikan pengembalian energi maksimal di setiap langkah.",
+    material: "PRIMEKNIT+ Forged Textile Upper",
+    sole: "Light BOOST Midsole & Continental™ Rubber",
+    colorway: "Cloud White / Core Black",
+    price: 1450000,
+    img: "https://assets.adidas.com/images/w_500%2Cf_auto%2Cq_auto/7d33ea9249714baa88308c50980d56d6_9366/Ultraboost_Light_Shoes_White_ID3281_HM1.jpg",
+    fallbackSvg: createSneakerIllustration("Adidas", "Ultraboost Light", "#f3f4f6", "#3b82f6", "#ffffff", "low")
+  },
+  {
+    id: 7,
+    brand: "Adidas",
+    category: "Originals / Retro Terrace",
+    name: "Adidas Samba OG",
+    description: "Sneakers klasik dengan desain ramping, ujung T-toe berbahan suede lembut, dan sol gum cokelat bergaya retro yang mudah dipadukan dengan berbagai outfit.",
+    material: "Full-Grain Leather & Suede T-Toe",
+    sole: "Classic Gum Rubber Cupsole",
+    colorway: "Cloud White / Core Black / Clear Granite",
+    price: 1700000,
+    img: "https://assets.adidas.com/images/w_600,f_auto,q_auto/3bbecbdf584e40398446a8bf0117cf62_9366/Samba_OG_Shoes_White_B75806_01_standard.jpg",
+    fallbackSvg: createSneakerIllustration("Adidas", "Samba OG", "#f8fafc", "#18181b", "#b45309", "low")
+  },
+  {
+    id: 3,
+    brand: "Converse",
+    category: "Classic Canvas",
+    name: "Converse Chuck Taylor All Star",
+    description: "Sneakers klasik berbahan kanvas premium yang ringan dan fleksibel dengan patch bintang ikonik serta sol karet vulkanisir khas Converse.",
+    material: "12oz Heavyweight Cotton Canvas",
+    sole: "Vulcanized Rubber Outsole & OrthoLite Insole",
+    colorway: "Black / White Monochrome",
+    price: 850000,
+    img: "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full/catalog-image/106/MTA-184957441/converse_converse_chuck_taylor_all_star_lift_-_sepatu_sneaker_wanita_-_optical_white_-cona19058c--_full02_suyf4ht8.webp",
+    fallbackSvg: createSneakerIllustration("Converse", "Chuck Taylor All Star", "#18181b", "#3f3f46", "#ffffff", "hightop")
+  },
+  {
+    id: 8,
+    brand: "Converse",
+    category: "Platform / Modern",
+    name: "Converse Run Star Hike",
+    description: "Sneakers kanvas bergaya modern dengan sol platform tebal bergerigi (saw-tooth) yang memberikan tampilan berani, unik, dan menambah tinggi.",
+    material: "Organic Cotton Canvas & Rubber Heel Star",
+    sole: "Chunky EVA Platform & Jagged Rubber Tread",
+    colorway: "Black / White / Gum",
+    price: 1200000,
+    img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTqZJJFTfTC00MrU0dVl0VyP6749SbW2BSWHZtK3HFXE1wozaXSnb1soHg&s=10",
+    fallbackSvg: createSneakerIllustration("Converse", "Run Star Hike Platform", "#18181b", "#52525b", "#ffffff", "chunky")
+  },
+  {
+    id: 4,
+    brand: "New Balance",
+    category: "Heritage Lifestyle",
+    name: "New Balance 574",
+    description: "Sneakers kasual bergaya klasik dengan kombinasi bahan suede dan mesh yang breathable serta teknologi bantalan ENCAP untuk kenyamanan harian.",
+    material: "Pigskin Suede & Breathable Mesh",
+    sole: "ENCAP Midsole Cushioning + EVA Foam",
+    colorway: "Classic Grey / Navy",
+    price: 1100000,
+    img: "https://nb.scene7.com/is/image/NB/ml574evg_nb_02_i?$pdpflexf2$&wid=440&hei=440",
+    fallbackSvg: createSneakerIllustration("New Balance", "New Balance 574", "#6b7280", "#1e3a8a", "#f4f4f5", "low")
+  },
+  {
+    id: 9,
+    brand: "New Balance",
+    category: "Retro Modern",
+    name: "New Balance 327",
+    description: "Sneakers bergaya retro tahun 70-an dengan siluet ramping, logo N berukuran besar, dan outsole trail bertabur stud yang ringan untuk aktivitas harian.",
+    material: "Suede & Nylon Upper dengan Oversized N Logo",
+    sole: "Flared EVA Midsole & Trail-Inspired Lug Outsole",
+    colorway: "Sea Salt / Castlerock Grey",
+    price: 1350000,
+    img: "https://nb.scene7.com/is/image/NB/ms327fe_nb_02_i?$pdpflexf2$&wid=440&hei=440",
+    fallbackSvg: createSneakerIllustration("New Balance", "New Balance 327", "#d1d5db", "#0f766e", "#18181b", "low")
+  },
+  {
+    id: 5,
+    brand: "Puma",
+    category: "Motorsport Edition",
+    name: "Puma BMW Motorsport RS-X",
+    description: "Sneakers sporty edisi kolaborasi resmi BMW M Motorsport dengan siluet bulky RS-X, bantalan empuk, dan aksen warna khas balap.",
+    material: "Synthetic Leather, Textile & Mesh Overlay",
+    sole: "Running System (RS) Cushioning Midsole",
+    colorway: "Puma White / BMW M Blue & Red",
+    price: 1050000,
+    img: "https://images.puma.com/image/upload/f_auto%2Cq_auto%2Cb_rgb%3Afafafa%2Cw_600%2Ch_600/global/308027/01/sv01/fnd/IDN/fmt/png/Sepatu-Sneaker-BMW-M-Motorsport-RS-X-Unisex",
+    fallbackSvg: createSneakerIllustration("Puma", "BMW Motorsport RS-X", "#f4f4f5", "#1d4ed8", "#ffffff", "chunky")
+  },
+  {
+    id: 10,
+    brand: "Puma",
+    category: "Classic Streetwear",
+    name: "Puma Suede Classic",
+    description: "Sneakers klasik legendaris berbahan full suede lembut dengan Formstrip ikonik Puma yang memberikan tampilan simpel, bersih, dan timeless.",
+    material: "Soft Full-Suede Upper & Leather Formstrip",
+    sole: "Textured Rubber Midsole & Outsole",
+    colorway: "Puma Black / Puma White",
+    price: 950000,
+    img: "https://images.puma.com/image/upload/f_auto,q_auto,b_rgb:fafafa,w_600,h_600/global/374915/01/sv01/fnd/IDN/fmt/png/Sepatu-Sneaker-Suede-Classic-XXI",
+    fallbackSvg: createSneakerIllustration("Puma", "Suede Classic XXI", "#18181b", "#404040", "#ffffff", "low")
+  }
+];
+
+let cart = [];
+let toastTimer = null;
+
+function showToast(msg) {
+  const toast = document.getElementById("toastBox");
+  toast.textContent = msg;
+  toast.classList.add("show");
+  clearTimeout(toastTimer);
+  toastTimer = setTimeout(() => {
+    toast.classList.remove("show");
+  }, 2800);
+}
+
+function rupiah(n) {
+  return "Rp" + n.toLocaleString("id-ID");
+}
+
+// Filter produk sesuai brand yang dipilih lalu otomatis scroll halus ke katalog sepatu
+function showProducts(brand, scrollToCatalog = true) {
+  const list = document.getElementById("productList");
+  const filtered = products.filter(p => brand === "Semua" || p.brand === brand);
+  const resetBtn = document.getElementById("resetFilterBtn");
+
+  // Tandai tombol brand yang aktif
+  document.querySelectorAll(".brand-btn").forEach(b => {
+    b.classList.toggle("active", b.dataset.brand === brand);
+  });
+
+  if (brand === "Semua") {
+    document.getElementById("catalogEyebrow").textContent = "FIND YOUR STYLE";
+    document.getElementById("catalogMainTitle").textContent = "Koleksi Sneakers RAFShop7";
+    resetBtn.style.display = "none";
+  } else {
+    document.getElementById("catalogEyebrow").textContent = brand.toUpperCase() + " COLLECTION";
+    document.getElementById("catalogMainTitle").textContent = "Koleksi Sepatu " + brand;
+    resetBtn.style.display = "inline-block";
+  }
+
+  document.getElementById("activeBrandLabel").textContent = "Brand: " + brand;
+  document.getElementById("productCount").textContent = filtered.length + " Produk";
+
+  list.innerHTML = filtered.map(p => {
+    const imgSrc = p.img || p.fallbackSvg;
+    return `
+    <article class="product">
+      <div class="product-clickable" onclick="openProductModal(${p.id})" title="Klik untuk melihat gambar besar &amp; detail ${p.brand} ${p.name}">
+        <div class="img-wrap">
+          <span class="brand-overlay-tag">${p.brand}</span>
+          <img src="${imgSrc}" onerror="this.onerror=null;this.src='${p.fallbackSvg}'" alt="${p.brand} - ${p.name}" loading="lazy">
+          <span class="zoom-hint">🔍 Klik Detail</span>
+        </div>
+        <div class="product-info">
+          <div class="product-brand-row">
+            <span class="product-brand">${p.brand}</span>
+            <span class="product-cat">${p.category}</span>
+          </div>
+          <h3>${p.name}</h3>
+          <p class="description">${p.description}</p>
+          <div class="price-row">
+            <div class="price">${rupiah(p.price)}</div>
+            <span class="stock-tag">✓ Ready Stock</span>
+          </div>
+        </div>
+      </div>
+      <div class="product-actions">
+        <select id="size${p.id}" aria-label="Pilih Ukuran ${p.name}">
+          <option value="">Pilih Ukuran Sepatu</option>
+          ${[39, 40, 41, 42, 43, 44].map(s => `<option value="${s}">Ukuran ${s}</option>`).join("")}
+        </select>
+        <button class="add-btn" onclick="addCart(${p.id})">+ Tambah Keranjang</button>
+      </div>
+    </article>`;
+  }).join("");
+
+  if (scrollToCatalog) {
+    const catalogEl = document.getElementById("katalog");
+    if (catalogEl) {
+      catalogEl.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+  }
+}
+
+function openProductModal(id) {
+  const product = products.find(p => p.id === id);
+  if (!product) return;
+
+  const modalImg = document.getElementById("modalImage");
+  modalImg.onerror = function() {
+    this.onerror = null;
+    this.src = product.fallbackSvg;
+  };
+  modalImg.src = product.img || product.fallbackSvg;
+  modalImg.alt = product.brand + " " + product.name;
+
+  document.getElementById("modalBrand").textContent = "BRAND: " + product.brand.toUpperCase();
+  document.getElementById("modalTitle").textContent = product.name;
+  document.getElementById("modalPrice").textContent = rupiah(product.price);
+  document.getElementById("modalDesc").textContent = product.description;
+  document.getElementById("modalSpecs").innerHTML = `
+    <div><strong>Brand / Kategori:</strong> ${product.brand} · ${product.category}</div>
+    <div><strong>Material Upper:</strong> ${product.material}</div>
+    <div><strong>Sol &amp; Bantalan:</strong> ${product.sole}</div>
+    <div><strong>Pilihan Warna:</strong> ${product.colorway}</div>
+  `;
+
+  const modalSelect = document.getElementById("modalSizeSelect");
+  modalSelect.value = "";
+  const modalAddBtn = document.getElementById("modalAddBtn");
+  modalAddBtn.onclick = function() {
+    const selectedSize = modalSelect.value;
+    if (!selectedSize) {
+      showToast("Pilih ukuran sepatu terlebih dahulu.");
+      return;
+    }
+    addProductToCart(product, selectedSize);
+    closeImageModal();
+  };
+
+  document.getElementById("imageModal").style.display = "flex";
+  document.body.style.overflow = "hidden";
+}
+
+function closeImageModal() {
+  document.getElementById("imageModal").style.display = "none";
+  document.body.style.overflow = "";
+}
+
+function addProductToCart(product, size) {
+  const existing = cart.find(i => i.id === product.id && i.size === size);
+  if (existing) existing.qty++;
+  else cart.push({ ...product, size, qty: 1 });
+  updateCart();
+  showToast("✓ " + product.brand + " " + product.name + " (Ukuran " + size + ") masuk keranjang!");
+}
+
+function addCart(id) {
+  const product = products.find(p => p.id === id);
+  const size = document.getElementById("size" + id).value;
+  if (!size) {
+    showToast("Pilih ukuran sepatu terlebih dahulu.");
+    return;
+  }
+  addProductToCart(product, size);
+}
+
+function updateCart() {
+  const items = document.getElementById("cartItems");
+  let total = 0, count = 0;
+  if (!cart.length) {
+    items.innerHTML = '<div class="empty-cart">Keranjang kamu masih kosong.<br><small>Pilih sepatu dan ukurannya di katalog.</small></div>';
+  } else {
+    items.innerHTML = cart.map((item, index) => {
+      total += item.price * item.qty;
+      count += item.qty;
+      return `<div class="cart-item">
+        <div style="font-size:11px;color:var(--orange);font-weight:800;text-transform:uppercase">${item.brand}</div>
+        <strong>${item.name}</strong>
+        <p>Ukuran: ${item.size} · Jumlah: ${item.qty}</p>
+        <p style="color:#fff;font-weight:700">${rupiah(item.price * item.qty)}</p>
+        <button class="remove-btn" onclick="removeItem(${index})">Hapus Item</button>
+      </div>`;
+    }).join("");
+  }
+  document.getElementById("cartCount").textContent = count;
+  document.getElementById("cartTotal").textContent = rupiah(total);
+}
+
+function removeItem(index) {
+  cart.splice(index, 1);
+  updateCart();
+  showToast("Item dihapus dari keranjang.");
+}
+
+function openCart() {
+  document.getElementById("cartPanel").style.display = "block";
+  document.getElementById("overlay").style.display = "block";
+  document.body.style.overflow = "hidden";
+}
+
+function closeCart() {
+  document.getElementById("cartPanel").style.display = "none";
+  document.getElementById("overlay").style.display = "none";
+  document.body.style.overflow = "";
+}
+
+function checkout() {
+  if (!cart.length) {
+    showToast("Keranjang masih kosong!");
+    return;
+  }
+  const name = document.getElementById("buyerName").value.trim();
+  const phone = document.getElementById("buyerPhone").value.trim();
+  const address = document.getElementById("buyerAddress").value.trim();
+  const payment = document.querySelector('input[name="payment"]:checked');
+
+  if (!name || !phone || !address || !payment) {
+    showToast("Lengkapi semua data pembeli dan pilih metode pembayaran.");
+    return;
+  }
+  if (!/^[0-9+\-\s]{8,18}$/.test(phone)) {
+    showToast("Nomor WhatsApp tidak valid.");
+    return;
+  }
+
+  let total = 0;
+  let message = "*PESANAN RAFShop7*\n\n";
+  message += "*DATA PEMBELI*\nNama: " + name + "\nNomor WA: " + phone + "\nAlamat: " + address + "\n\n";
+  message += "*DETAIL PESANAN*\n";
+  cart.forEach(item => {
+    const subtotal = item.price * item.qty;
+    total += subtotal;
+    message += "[" + item.brand + "] " + item.name + " | Ukuran " + item.size + " | " + item.qty + " pcs | " + rupiah(subtotal) + "\n";
+  });
+  message += "\n*TOTAL: " + rupiah(total) + "*\n";
+  message += "Metode pembayaran: " + payment.value + "\n\n";
+  message += "Mohon konfirmasi pesanan dan informasi pembayaran. Terima kasih!";
+
+  window.open("https://wa.me/6288975157459?text=" + encodeURIComponent(message), "_blank");
+}
+
+// Tutup modal detail sepatu saat menekan tombol Escape
+document.addEventListener("keydown", function(e) {
+  if (e.key === "Escape" && document.getElementById("imageModal").style.display === "flex") {
+    closeImageModal();
+  }
+});
+
+// Inisialisasi awal di tampilan Semua Brand
+showProducts("Semua", false);
+updateCart();
+</script>
+</body>
+</html>
